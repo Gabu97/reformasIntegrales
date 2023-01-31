@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap");
+.nav-item {
+margin-left: 20px;
+  font-size: 20px;
+}
+
+.navbar {
+  background-color: #F9F9FF !important;
+
+}
+
+a {
+  color: #243133 !important;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #bd9109!important;
+}
+
+#logo {
+  margin-right: 50px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.navbar-brand {
+  
+  font-weight: 300;
+  font-size: 50px;
+  color: #243133 !important;
+}
+.navbar-brand:hover {
+  color: #bd9109!important;
+}
+@media (max-width: 600px) {
+  .navbar-toggler {
+    justify-content: end;
+    border: none !important;
+  }
+  img {
+    width: 25px;
+  }
+  img:hover {
+    filter: brightness(50%);
+  }
+  .nav-item {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #logo {
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .navbar-brand {
+   
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .navbar-toggler {
+    justify-content: end;
+    border: none !important;
+  }
+  img {
+    width: 25px;
+  }
+
+  .navbar-brand {
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar-toggler {
+    justify-content: end;
+    border: none !important;
+  }
+  img {
+    width: 25px;
+  }
+
+  .navbar-brand {
+    font-weight: 300;
+    font-size: 20px;
+  }
+}

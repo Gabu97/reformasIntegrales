@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Bebas+Neue&family=Quicksand:wght@300&display=swap");
+
+#textHero {
+  position: absolute !important;
+  color: rgb(255, 255, 255) !important;
+  background: none !important;
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 900 !important;
+  font-size: 30px;
+  font-family: "Aboreto" !important;
+}
+#btnInicio{
+    color: rgb(255, 255, 255);
+}
+#btnInicio:hover{
+color:#bd9109
+}
+#video {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  /*filter: brightness(100%);*/
+  filter: contrast(120%);
+  
+
+}
+/*#video1 {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  filter:saturate(0%)!important;
+  filter: brightness(70%);
+}*/
+
+#galeria {
+  background-color: #bd9109 !important;
+  color: #f9f9ff;
+}
+
+#calculadora {
+  background-color: #bd9109 !important;
+  color: #f9f9ff;
+}
+#galeria:hover {
+  background-color: #f9f9ff !important;
+  color:  #bd9109 ;
+}
+
+#calculadora:hover {
+    background-color: #f9f9ff !important;
+    color:  #bd9109 ;
+}
+#fotoCocina{
+    width: 500px;
+}
+#fotoCocina:hover{
+  width: 500px;
+  filter:brightness(20%);
+}
+@media (max-width: 600px) {
+  #textHero {
+    position: absolute !important;
+    color: rgb(255, 255, 255) !important;
+    background: none !important;
+    top: 30% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+  }
+  #fotoCocina{
+    width: 300px;
+}
+}

@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Bathrooms</th>
+    <th>Kitchen</th>
+    <th>Painting</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let budget of budgets | keyvalue">
+    <td>{{ budget.key }}</td>
+    <td>{{ budget.value.name }}</td>
+    <td>{{ budget.value.bathrooms }}</td>
+    <td>{{ budget.value.kitchen }}</td>
+    <td>{{ budget.value.painting }}</td>
+    <td>{{ budget.value.total }}</td>
+    <td><button (click)="removeBudget(budget)">Remove</button></td>
+    <td>
+      <button (click)="openModal(budget)">
+        <app-detail-budget [budget]="selectedBudget"></app-detail-budget>
+      </button>
+    </td>
+    <td></td>
+  </tr>
+  <tr *ngIf="!budgets || budgets.length === 0">
+    <td colspan="5">No hay datos</td>
+  </tr>
+</table>
+
+<button routerLink="/calculatorAdmin">CREATE NEW</button>
+<button (click)="onClick()">Cierra sesión</button>
+<!--<app-detail-budget *ngIf="isModalOpen" [budget]="selectedBudget" (close)="closeModal()"></app-detail-budget>-->

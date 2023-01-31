@@ -1,0 +1,42 @@
+<p>calculator-admin works!</p>
+
+<button (click)="onClick()">Cierra sesión</button>
+
+<form [formGroup]="budgetForm" #CrudForm="ngForm">
+ <label for="name"></label>
+ <input type="text" id="name" formControlName="name"/>
+  <div>
+    <label for="bathrooms">Baños:</label>
+    <input ngModel type="text" id="bathrooms" name="bathrooms" formControlName="bathrooms"/>
+    <span class="form-text text-danger" *ngIf="invalidField('bathrooms')">
+      Invalid number
+    </span>
+    <div *ngIf="bathroomsPrice && budgetForm.valid">El precio del total es: {{ bathroomsPrice }}</div>
+  </div>
+
+  <div>
+    <label for="kitchen">Cocina (en metros cuadrados):</label>
+    <input ngModel type="text" id="kitchen" name="kitchen" formControlName="kitchen"/>
+    <span class="form-text text-danger" *ngIf="invalidField('kitchen')">
+      Invalid number
+    </span>
+    <div *ngIf="kitchensPrice && budgetForm.valid">El precio del total es: {{ kitchensPrice }}</div>
+  </div>
+  <div>
+    <label for="painting">Pintura (número de habitaciones):</label>
+    <input ngModel type="text" id="painting" name="painting" formControlName="painting"/>
+    <span class="form-text text-danger" *ngIf="invalidField('painting')">
+      Invalid number
+    </span>
+  </div>
+
+  <div *ngIf="budget && budgetForm.valid">El precio del total es: {{ budget }} {{ budgetForm.get('name')?.value }}</div>
+
+  <button (click)="saveBudget(CrudForm.value)" routerLink="/budgetsCreated">SAVE</button>
+<!--<button (click)="getBudget(CrudForm.value)">GET</button>-->
+
+<button routerLink="/budgetsCreated">SHOW ALL</button>
+
+</form>
+
+

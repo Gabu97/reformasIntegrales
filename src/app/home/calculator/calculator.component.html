@@ -1,0 +1,56 @@
+<div class="row bg-light shadow-sm p-5">
+  <div class="col">
+    <h1>Crea tu presupuesto personalizado</h1>
+    <p>
+      *ESTO METERLO En un modal DE INFO*<br />
+      La calculadora es una herramienta diseñada para ayudarte a obtener una
+      aproximación del precio total de la reforma integral de tu vivienda. Con
+      ella, puedes seleccionar los trabajos que deseas realizar en tu hogar,
+      como pintura, electricidad, baños, entre otros, y obtener una estimación
+      del presupuesto total. Para utilizarla, simplemente sigue las
+      instrucciones indicadas. Ten en cuenta que los precios obtenidos son
+      orientativos y pueden variar dependiendo de la ubicación, la
+      disponibilidad de materiales y otros factores. Contactar con nosotros para
+      obtener un presupuesto más preciso.
+    </p>
+    <p>
+      1. Selecciona los trabajos que deseas realizar en tu vivienda.<br />
+      2. Elige las cantidades de espacios a reformar.<br />
+      3. Introduce las medidas de las áreas, podrás ver al instante el precio
+      final.<br />
+      4. Si quieres descargar el archivo, introduce tu correo electrónico y
+      acepta la política de privacidad.<br />
+      5. Haz clic en ¡Lo tengo! para generar el archivo.<br />
+    </p>
+    <hr />
+    <form [formGroup]="budgetForm">
+      <div>
+        <label for="bathrooms">Baños:</label>
+        <input type="text" id="bathrooms" formControlName="bathrooms" />
+        <span class="form-text text-danger" *ngIf="invalidField('bathrooms')">
+          Invalid number
+        </span>
+      </div>
+
+      <div>
+        <label for="kitchen">Cocina (en metros cuadrados):</label>
+        <input type="text" id="kitchen" formControlName="kitchen" />
+        <span class="form-text text-danger" *ngIf="invalidField('kitchen')">
+          Invalid number
+        </span>
+      </div>
+      <div>
+        <label for="painting">Pintura (número de habitaciones):</label>
+        <input type="text" id="painting" formControlName="painting" />
+        <span class="form-text text-danger" *ngIf="invalidField('painting')">
+          Invalid number
+        </span>
+      </div>
+    </form>
+
+    <div *ngIf="budget && budgetForm.valid">
+      El precio total es: {{ budget }}
+    </div>
+
+  </div>
+</div>

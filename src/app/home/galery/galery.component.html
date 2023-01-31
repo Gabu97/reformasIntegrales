@@ -1,0 +1,29 @@
+<h1>GALERÍA</h1>
+<!--
+<div class="images">
+    <img [src]="image" *ngFor="let image of imagesBathroom"/>
+</div>
+
+<div class="images">
+    <img [src]="image" *ngFor="let image of imagesKitchen"/>
+</div>
+
+<div class="images">
+    <img [src]="image" *ngFor="let image of imagesOthers"/>
+</div>
+-->
+<button (click)="cambiarImagen('bathroom')">Mostrar Baño</button>
+<button (click)="cambiarImagen('kitchen')">Mostrar Cocina</button>
+<button (click)="cambiarImagen('others')">Mostrar Otros</button>
+
+<div class="images" *ngIf="mostrarImagen === 'bathroom'">
+  <img *ngFor="let image of imagesBathroom" [src]="image" width="300px">
+</div>
+
+<div class="images" *ngIf="mostrarImagen === 'kitchen'">
+  <img *ngFor="let image of imagesKitchen" [src]="image" width="300px">
+</div>
+
+<div class="images" *ngIf="mostrarImagen === 'others'">
+  <img *ngFor="let image of imagesOthers" [src]="image" width="300px">
+</div>
