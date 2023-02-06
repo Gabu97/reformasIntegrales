@@ -1,5 +1,3 @@
-
-
 //import {initializeApp} from 'firebase/app';
 //import { AngularFireModule } from '@angular/fire';
 //import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -15,7 +13,7 @@ import { ModalPhotoComponent } from './modal-photo/modal-photo.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { BudgetComponent } from './budget/budget.component';
 import { ContactComponent } from './contact/contact.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgForm, ReactiveFormsModule } from '@angular/forms';
 //import { environment } from 'src/environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
@@ -23,8 +21,6 @@ import { environment } from 'src/environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
-
-
     HeroComponent,
     GaleryComponent,
     ModalPhotoComponent,
@@ -36,6 +32,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     RouterModule,
     CommonModule,
     ReactiveFormsModule,
+
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
 

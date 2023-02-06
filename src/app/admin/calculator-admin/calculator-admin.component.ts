@@ -60,18 +60,18 @@ export class CalculatorAdminComponent implements OnInit {
     const bathroomsTotal = this.budgetForm.get('bathrooms')?.value || 0;
     const kitchenTotal = this.budgetForm.get('kitchen')?.value || 0;
     const paintingTotal = this.budgetForm.get('painting')?.value || 0;
-    this.bathroomsPrice = this.budgetService.calculateBudget(
+    this.bathroomsPrice = this.budgetService.calculateBudgetAdmin(
       bathroomsTotal,
       0,
       0
     );
-    this.kitchensPrice = this.budgetService.calculateBudget(0, kitchenTotal, 0);
-    this.paintingsPrice = this.budgetService.calculateBudget(
+    this.kitchensPrice = this.budgetService.calculateBudgetAdmin(0, kitchenTotal, 0);
+    this.paintingsPrice = this.budgetService.calculateBudgetAdmin(
       0,
       0,
       paintingTotal
     );
-    this.budget = this.budgetService.calculateBudget(
+    this.budget = this.budgetService.calculateBudgetAdmin(
       bathroomsTotal,
       kitchenTotal,
       paintingTotal

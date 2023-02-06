@@ -30,7 +30,6 @@ FooterComponent
     ClientModule,
     AdminModule,
     NgbModule,
-
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
     provideStorage(() => getStorage()),

@@ -18,39 +18,162 @@
       2. Elige las cantidades de espacios a reformar.<br />
       3. Introduce las medidas de las áreas, podrás ver al instante el precio
       final.<br />
-      4. Si quieres descargar el archivo, introduce tu correo electrónico y
-      acepta la política de privacidad.<br />
-      5. Haz clic en ¡Lo tengo! para generar el archivo.<br />
     </p>
     <hr />
     <form [formGroup]="budgetForm">
       <div>
-        <label for="bathrooms">Baños:</label>
-        <input type="text" id="bathrooms" formControlName="bathrooms" />
-        <span class="form-text text-danger" *ngIf="invalidField('bathrooms')">
-          Invalid number
-        </span>
+        <label for="derribos">Derribos</label>
+        <input type="number" formControlName="derribos" />
       </div>
+      <div>
+        <label for="instalaciones">Instalaciones:</label>
+        <input type="checkbox" id="instalaciones" (click)="toggleInst()" />
+        <div *ngIf="showInstalaciones">
+          <p>Elige la opción de instalaciones:</p>
+          <ul>
+            <li>
+              Opción 1:
+              <input
+                type="checkbox"
+                formControlName="agua"
+                (change)="onAguaChecked($event)"
+              />/>
+              <label for="agua">Agua</label>
+            </li>
+            <li>
+              Opción 2:
+              <input
+                type="checkbox"
+                formControlName="desague"
+                (change)="onDesagueChecked($event)"
+              />/>
+              <label for="desague">Desague</label>
+            </li>
+            <li>
+              Opción 3:
+              <input
+                type="checkbox"
+                formControlName="electricidad"
+                (change)="onElectricidadChecked($event)"
+              />/>
+              <label for="electricidad">Electricidad</label>
+            </li>
+            <li>
+              Opción 1:
+              <input
+                type="checkbox"
+                formControlName="completa"
+                (change)="onCompletaChecked($event)"
+              />/>
+              <label for="completa">Completa</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <label for="paredes">Paredes:</label>
+        <input type="checkbox" id="paredes" (click)="toggleParedes()" />
+        <div *ngIf="showParedes">
+          <label for="paredesDetail">Algo de paredes:</label>
+          <input type="number" formControlName="paredesDetail" />
+          Algo de paredes
+          <label for="puerta">Puerta</label>
+          <input type="checkbox" formControlName="puerta" />
+        </div>
+      </div>
+      <div>
+        <label for="suelo">Suelo</label>
+        <input type="number" formControlName="suelo" />
+      </div>
+      <div>
+        <label for="techo">Techo:</label>
+        <input type="checkbox" id="techo" (click)="toggleTecho()" />
+        <div *ngIf="showTecho">
+          <label for="colocarTecho">Colocacion</label>
+          <input type="number" formControlName="colocarTecho" />
+          <label for="iluminarTecho">Iluminacion</label>
+          <input type="number" formControlName="iluminarTecho" />
+          <label for="pintarTecho">Pintura</label>
+          <input type="number" formControlName="pintarTecho" />
+        </div>
+      </div>
+      <div>
+        <label for="accesorios">Accesorios:</label>
+        <input type="checkbox" id="accesorios" (click)="toggleAccesorios()" />
+        <div *ngIf="showAccesorios">
+          <label for="inodoro">Inodoros</label>
+          <input type="checkbox" (click)="toggleIn()" />
 
-      <div>
-        <label for="kitchen">Cocina (en metros cuadrados):</label>
-        <input type="text" id="kitchen" formControlName="kitchen" />
-        <span class="form-text text-danger" *ngIf="invalidField('kitchen')">
-          Invalid number
-        </span>
-      </div>
-      <div>
-        <label for="painting">Pintura (número de habitaciones):</label>
-        <input type="text" id="painting" formControlName="painting" />
-        <span class="form-text text-danger" *ngIf="invalidField('painting')">
-          Invalid number
-        </span>
+          <div *ngIf="showIn">
+            <input type="checkbox" formControlName="inodoro1" />
+            <label for="inodoro1">Inodoro1</label>
+            <input type="checkbox" formControlName="inodoro2" />
+            <label for="inodoro2">Inodoro2</label>
+          </div>
+
+          <label for="mueble">Mueble</label>
+          <input type="checkbox" (click)="toggleMueble()" />
+          <div *ngIf="showMueble">
+            <input type="checkbox" formControlName="mueble1" />
+            <label for="mueble1">Mueble1</label>
+            <input type="checkbox" formControlName="mueble2" />
+            <label for="mueble2">Mueble2</label>
+            <input type="checkbox" formControlName="mueble3" />
+            <label for="mueble3">Mueble3</label>
+          </div>
+
+          <label for="grifoL">Grifo lavabo</label>
+          <input type="checkbox" (click)="toggleGrifoL()" />
+          <div *ngIf="showGrifoL">
+            <input type="checkbox" formControlName="grifo1" />
+            <label for="grifo1">grifo1</label>
+            <input type="checkbox" formControlName="grifo2" />
+            <label for="grifo2">grifo2</label>
+            <input type="checkbox" formControlName="grifo3" />
+            <label for="grifo3">grifo3</label>
+          </div>
+
+          <label for="grifoD">Grifo ducha</label>
+          <input type="checkbox" (click)="toggleGrifoD()" />
+          <div *ngIf="showGrifoD">
+            <input type="checkbox" formControlName="grifo1d" />
+            <label for="grifo1d">grifo1d</label>
+            <input type="checkbox" formControlName="grifo2d" />
+            <label for="grifo2d">grifo2d</label>
+            <input type="checkbox" formControlName="grifo3d" />
+            <label for="grifo3d">grifo3d</label>
+          </div>
+
+          <label for="platoD">Plato ducha</label>
+          <input type="checkbox" (click)="togglePlatoD()" />
+          <div *ngIf="showPlatoD">
+            <input type="checkbox" formControlName="plato1" />
+            <label for="plato1">plato1</label>
+            <input type="checkbox" formControlName="plato2" />
+            <label for="plato2">plato2</label>
+            <input type="checkbox" formControlName="plato3" />
+            <label for="plato3">plato3</label>
+          </div>
+
+          <label for="espejo">Espejo</label>
+          <input type="checkbox" (click)="toggleEspejo()" />
+          <div *ngIf="showEspejo">
+            <input type="checkbox" formControlName="espejo1" />
+            <label for="espejo1">espejo1</label>
+            <input type="checkbox" formControlName="espejo2" />
+            <label for="espejo2">espejo2</label>
+          </div>
+          <label for="mampara">Mampara</label>
+          <input type="checkbox" (click)="toggleMampara()" />
+          <div *ngIf="showMampara">
+            <input type="checkbox" formControlName="mampara1" />
+            <label for="mampara1">mampara1</label>
+            <input type="checkbox" formControlName="mampara2" />
+            <label for="mampara2">mampara2</label>
+          </div>
+        </div>
       </div>
     </form>
-
-    <div *ngIf="budget && budgetForm.valid">
-      El precio total es: {{ budget }}
-    </div>
-
+    <div>Total: {{ calculateBudget() }}</div>
   </div>
 </div>
