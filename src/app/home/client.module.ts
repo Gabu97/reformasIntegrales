@@ -17,8 +17,9 @@ import { NgForm, ReactiveFormsModule } from '@angular/forms';
 //import { environment } from 'src/environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     HeroComponent,
@@ -32,6 +33,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     RouterModule,
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BrowserModule,
 
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

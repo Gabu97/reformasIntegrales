@@ -1,4 +1,56 @@
-<p>contact works!</p>
-<button (click)="abrirWhatsApp()">Abrir whatsapp</button>
-<button (click)="llamar()">Llamar</button>
-<button (click)="enviarCorreoNoGmail()">Enviar correo</button>
+<div class="container w-100">
+  <div class="row align-items-center text-center botones">
+    <h1>Contacta con nosotros</h1>
+    <div class="col-xl-4 col-md-4 col-sm-12">
+      <button (click)="abrirWhatsApp()" id="whats">
+        ESCRÍBENOS
+        <img
+          src="../../../assets/iconmonstr-whatsapp-1.svg"
+          width="50px"
+          id="icon"
+        />
+      </button>
+    </div>
+    <div class="col-xl-4 col-md-4 col-sm-12">
+      <button (click)="llamar()" id="phone">
+        LLÁMANOS
+        <img
+          src="../../../assets/iconmonstr-phone-3.svg"
+          width="50px"
+          id="icon"
+        />
+      </button>
+    </div>
+    <div class="col-xl-4 col-md-4 col-sm-12">
+      <button (click)="enviarCorreoNoGmail()" id="email">
+        EMAIL &nbsp; &nbsp;&nbsp;&nbsp;
+        <img
+          src="../../../assets/iconmonstr-email-4.svg"
+          width="50px"
+          id="icon"
+        />
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xxl-8 col-xl-8 col-md-12 col-sm-12">
+      <p>
+        Si necesitas más información sobre nuestros servicios, no dudes en
+        ponerte en contacto con nosotros. Estaremos encantados de ayudarte.
+        Además, no olvides seguirnos en nuestras redes sociales para estar al
+        tanto de las últimas novedades y proyectos. ¡Gracias por elegirnos!
+      </p>
+    </div>
+    <div class="col-xxl-2 col-xl-2 col-md-6 col-sm-12 face">
+      <a href="https://www.facebook.com/profile.php?id=100062935764949"
+        ><img src="../../../assets/iconmonstr-facebook-6.svg" width="50px"
+      /></a>
+    </div>
+    <div class="col-xxl-2 col-xl-2 col-md-6 col-sm-12 face">
+      <a href="https://www.instagram.com/trojnarbcn"
+        ><img src="../../../assets/iconmonstr-instagram-13.svg" width="50px"
+      /></a>
+    </div>
+  </div>
+ 
+</div>

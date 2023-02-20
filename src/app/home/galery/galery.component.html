@@ -1,29 +1,83 @@
-<h1>GALERÍA</h1>
+<div class="container d-flex justify-content-center pt-5"><h1>GALERÍA</h1></div>
+<div class="container text-center">
+  <div class="row justify-content-center pt-5 pb-5">
+    <div class="col-xl-4 col-sm-12">
+      <button
+        [ngClass]="{ active: mostrarImagen === 'bathroom' }"
+        (click)="cambiarImagen('bathroom')"
+      >
+        BAÑOS
+      </button>
+    </div>
+    <div class="col-xl-4 col-sm-12">
+      <button
+        [ngClass]="{ active: mostrarImagen === 'kitchen' }"
+        (click)="cambiarImagen('kitchen')"
+      >
+        COCINAS
+      </button>
+    </div>
+    <div class="col-xl-4 col-sm-12">
+      <button
+        [ngClass]="{ active: mostrarImagen === 'others' }"
+        (click)="cambiarImagen('others')"
+      >
+        OTROS
+      </button>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="cargando">
+  <div
+    class="container cargando d-flex flex-column justify-content-center align-items-center"
+  >
+  <h2>CARGANDO</h2>
+    <div class="spinner-border mt-3" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</ng-container>
+
+<div class="container mw-100 mx-auto" *ngIf="mostrarImagen === 'bathroom' && !cargando">
+  <ul class="image-gallery">
+    <li *ngFor="let image of imagesBathroom">
+      <img [src]="image" (click)="openModal(modalContent, image)" />
+    </li>
+  </ul>
+</div>
+
+<div class="container" *ngIf="mostrarImagen === 'kitchen' && !cargando">
+  <ul class="image-gallery">
+    <li *ngFor="let image of imagesKitchen">
+      <img [src]="image" (click)="openModal(modalContent, image)" />
+    </li>
+  </ul>
+</div>
+<div class="container" *ngIf="mostrarImagen === 'others' && !cargando">
+  <ul class="image-gallery">
+    <li *ngFor="let image of imagesOthers">
+      <img [src]="image" (click)="openModal(modalContent, image)" />
+    </li>
+  </ul>
+</div>
+
 <!--
-<div class="images">
-    <img [src]="image" *ngFor="let image of imagesBathroom"/>
-</div>
-
-<div class="images">
-    <img [src]="image" *ngFor="let image of imagesKitchen"/>
-</div>
-
-<div class="images">
-    <img [src]="image" *ngFor="let image of imagesOthers"/>
+<div class="images" *ngIf="mostrarImagen === 'others' && !cargando">
+  <img *ngFor="let image of imagesOthers" [src]="image" width="300px" />
 </div>
 -->
-<button (click)="cambiarImagen('bathroom')">Mostrar Baño</button>
-<button (click)="cambiarImagen('kitchen')">Mostrar Cocina</button>
-<button (click)="cambiarImagen('others')">Mostrar Otros</button>
-
-<div class="images" *ngIf="mostrarImagen === 'bathroom'">
-  <img *ngFor="let image of imagesBathroom" [src]="image" width="300px">
-</div>
-
-<div class="images" *ngIf="mostrarImagen === 'kitchen'">
-  <img *ngFor="let image of imagesKitchen" [src]="image" width="300px">
-</div>
-
-<div class="images" *ngIf="mostrarImagen === 'others'">
-  <img *ngFor="let image of imagesOthers" [src]="image" width="300px">
-</div>
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <img [src]="selectedImage" />
+  </div>
+</ng-template>

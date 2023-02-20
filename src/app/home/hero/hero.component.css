@@ -2,44 +2,57 @@
 
 #textHero {
   position: absolute !important;
-  color: rgb(255, 255, 255) !important;
-  background: none !important;
-  top: 50% !important;
+  color: rgb(255, 255, 255);
+  background: none;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-weight: 900 !important;
-  font-size: 30px;
-  font-family: "Aboreto" !important;
+  font-weight: 900;
+  font-size: 50px !important;
+  font-family: "Aboreto";
+}
+#fondoHero {
+  width: max-content;
 }
 #pSobreNosotros {
-  font-size: 20px !important;
-  padding-right: 100px !important;
+  font-size: 20px;
+  padding-right: 100px;
+  padding-top: 100px;
 }
 #pNuestroEquipo {
-  font-size: 20px !important;
-  padding-left: 100px !important;
+  font-size: 20px;
+  padding-left: 100px;
   padding-right: 50px;
+  padding-top: 100px;
 }
 #pValores {
-  font-size: 20px !important;
-  padding-right: 100px !important;
+  font-size: 20px;
+  padding-right: 100px;
+  padding-top: 100px;
 }
 
 #hValores {
-  font-size: 70px !important;
+  font-size: 70px;
+  font-weight: 100;
 }
 #hNuestroEquipo {
-  font-size: 70px !important;
+  font-size: 70px;
+  font-weight: 100;
 }
 #hSobreNosotros {
-  font-size: 70px !important;
+  font-size: 70px;
+  font-weight: 100;
 }
+
 #btnInicio {
   color: rgb(255, 255, 255);
 }
 #btnInicio:hover {
   color: #bd9109;
 }
+
+
+
 
 #galeria {
   background-color: #bd9109 !important;
@@ -66,297 +79,766 @@
   width: 500px;
   filter: brightness(20%);
 }
+.servicios {
+  font-size: 20px;
+}
+/*IMAGE GALERY*/
 
-/*Aquí las imagenes*/
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
 
-#hexGrid {
+/* Main CSS */
+.grid-wrapper > div {
   display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: 0 auto;
-  overflow: hidden;
-  font-family: sans-serif;
-  list-style-type: none;
+  justify-content: center;
+  align-items: center;
 }
-
-.hex {
-  position: relative;
-  visibility: hidden;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  transition: all 0.5s;
-  backface-visibility: hidden;
-  will-change: transform;
-  transition: all 0.5s;
-}
-.hex::after {
-  content: "";
-  display: block;
-  padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
-}
-.hexIn {
-  position: absolute;
-  width: 300px;
-  padding-bottom: 110.851%; /* =  width / sin(60) */
-  margin: 2%;
-  overflow: hidden;
-  visibility: hidden;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-
-  transition: all 0.5s;
-}
-.hexIn * {
-  position: absolute;
-  visibility: visible;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-}
-.hexLink {
-  display: block;
+.grid-wrapper > div > img {
   width: 100%;
   height: 100%;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-
+  object-fit: cover;
+  border-radius: 5px;
+  transition: all 0.8s ease-in-out;
+  filter: brightness(90%);
+}
+.grid-wrapper > div > img:hover {
+  transform: scale(1.2);
+  filter: brightness(120%);
+}
+.grid-wrapper {
+  padding: 100px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
 }
 
-/*** HEX CONTENT **********************************************************************/
-.hex img {
-  left: -100%;
-  right: -100%;
+.grid-wrapper .wide {
+  grid-column: span 1;
+}
+.grid-wrapper .tall {
+  grid-row: span 2;
+}
+.grid-wrapper .big {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/*PARALLAX*/
+#parallax-world-of-ugg .block {
+  background: white;
+  padding: 100px;
+  margin-bottom: 100px;
   width: auto;
-  height: 100%;
   margin: 0 auto;
+  text-align: justify;
 }
 
-.hex h1,
-.hex p {
+#parallax-world-of-ugg .parallax-one {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  overflow: hidden;
+  position: relative;
   width: 100%;
-  padding: 5%;
-  box-sizing: border-box;
-  font-weight: 300;
-  opacity: 0;
+  background-image: url(../../../assets/b22.jpeg);
+  filter: brightness(80%);
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-#demo1 {
-  color: #f5ce95;
-  text-transform: capitalize;
-  text-align: center;
-  bottom: 50%;
-  padding-top: 50%;
-  font-size: 1.5em;
+/*Botones*/
+.hello {
+  position: relative;
+  height: 500px;
   z-index: 1;
 }
-.hex h1:before,
-.hex h1:after {
-  display: inline-block;
-  margin: 0 0.5em;
-  width: 0.25em;
-  height: 0.03em;
-  background: #ffffff;
-  content: "";
-  vertical-align: middle;
-  transition: all 0.3s;
-  text-align: center;
-}
-
-#demo2 {
-  top: 50%;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.img {
+#parrallax {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#encima {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gradient-btn {
+  display: inline-block;
+  padding: 1em 2em;
+  border-radius: 0;
+  color: white;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 30px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: linear-gradient(to right, rgba(178, 135, 111, 0) 25%, white 75%);
+  background-position: 1% 50%;
+  background-size: 400% 300%;
+  border: 1px solid white;
+  transition: 700ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.gradient-btn:hover {
+  transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.gradient-btn:hover {
+  color: white;
+  color: #243133;
+  background-position: 99% 50%;
+}
+
+.frame-btn {
+  margin-top: 50px;
+  line-height: 10px;
+  display: inline-block;
+  padding: 40px 30px;
+  font-size: 30px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  position: relative;
+}
+.frame-btn__text {
+  color: #243133;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 300ms ease;
+  position: relative;
+}
+.frame-btn:hover .frame-btn__text {
+  color: white;
+}
+.frame-btn__solid {
+  position: absolute;
+  top: 0;
   left: 0;
   margin: 10px;
-  background-position: center center;
-  background-size: cover;
-  overflow: hidden;
-  -webkit-clip-path: polygon(
-    50% 0%,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0% 75%,
-    0% 25%
-  );
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #243133;
+  width: calc(100% - (5px * 4));
+  height: calc(100% - (5px * 4));
+  transform-origin: 50%;
+  transform: scale(0.85);
+  opacity: 0;
+  transition: 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
-.img:before,
-.img:after {
+.frame-btn:hover .frame-btn__solid {
+  opacity: 1;
+  transform: scale(1);
+}
+.frame-btn__outline {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+}
+.frame-btn__outline--tall {
+  margin: 0 5px;
+  width: calc(100% - (5px * 2));
+  height: 100%;
+}
+.frame-btn__outline--flat {
+  margin: 5px 0;
+  height: calc(100% - (5px * 2));
+  width: 100%;
+}
+.frame-btn__line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.frame-btn__line--tall:before,
+.frame-btn__line--tall:after {
+  height: 100%;
+  width: 1px;
+  top: 0;
+}
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--tall:before,
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--tall:after {
+  transform: scaleY(0);
+}
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--tall:before,
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--tall:after {
+  margin: 5px 0;
+  height: calc(100% - (5px * 2));
+}
+.frame-btn__line--tall:before {
+  left: 0;
+}
+.frame-btn__line--tall:after {
+  right: 0;
+}
+.frame-btn__line--flat:before,
+.frame-btn__line--flat:after {
+  width: 100%;
+  height: 1px;
+  left: 0;
+}
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--flat:before,
+.frame-btn:hover .frame-btn__outline--tall .frame-btn__line--flat:after {
+  transform: scaleX(0);
+}
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--flat:before,
+.frame-btn:hover .frame-btn__outline--flat .frame-btn__line--flat:after {
+  margin: 0 5px;
+  width: calc(100% - (5px * 2));
+}
+.frame-btn__line--flat:before {
+  top: 0;
+}
+.frame-btn__line--flat:after {
+  bottom: 0;
+}
+.frame-btn__line:before,
+.frame-btn__line:after {
   content: "";
-  opacity: 0;
-  transition: opacity 0.5s;
+  display: block;
+  position: absolute;
+  background-color: #243133;
+  transition: 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.img:before {
-  background: rgba(22, 103, 137, 0.3);
-}
-.img:after {
-  background: linear-gradient(
-    to top,
-    transparent,
-    rgba(0, 0, 0, 0.5),
-    transparent
-  );
+.frame-btn:hover .frame-btn__line:before,
+.frame-btn:hover .frame-btn__line:after {
+  transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/*** HOVER EFFECT  **********************************************************************/
-
-.hexLink:hover h1,
-.hexLink:focus h1,
-.hexLink:hover p,
-.hexLink:focus p {
-  opacity: 1;
-  transition: 0.8s;
-}
-
-.hexIn:hover .img:before,
-.hexIn:hover .img:after,
-.hexIn:hover .hexLink {
-  opacity: 1;
-}
-
-
-
-
-/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-@media (min-width:1500px) { /* <- 5-4  hexagons per row */
-  #hexGrid{
-    padding-bottom: 4.4%
-  }
-  .hex {
-    width: 20%; /* = 100 / 5 */
-  }
- .hexIn{
-  width: 300px;
- }
-.img{
-  margin: 30px!important;
-}
-  .hex:nth-child(9n+6){ /* first hexagon of even rows */
-    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width:1499px) and (min-width:1201px){ /* <- 5-4  hexagons per row */
-  #hexGrid{
-    padding-bottom: 4.4%
-  }
-  .hex {
-    width: 20%; /* = 100 / 5 */
-  }
- .hexIn{
-  width: 200px;
- }
-  .img{
-    margin: 10px;
-  }
-  .hex:nth-child(9n+6){ /* first hexagon of even rows */
-    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 1200px) and (min-width:1001px) { /* <- 4-3  hexagons per row */
-  #hexGrid{
-    padding-bottom: 5.5%;
-    font-size: 13px;
-  }
-  .hex {
-    width: 25%; /* = 100 / 4 */
-  }
-  .hexIn{
-    width: 220px;
-  }
-  .img{
-    margin: 20px;
-  }
-  .hex:nth-child(7n+5){ /* first hexagon of even rows */
-    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media(max-width:1000px) and (min-width:901px){
-  .hexIn{
-    width: 200px;
-  }
-  #hexGrid{
-    padding-bottom: 5.5%;
-    font-size: 13px;
-  }
-  .hex {
-    width: 25%; /* = 100 / 4 */
-  }
-  .img{
-    margin: 20px;
-  }
-  .hex:nth-child(7n+5){ /* first hexagon of even rows */
-    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
-  #hexGrid{
-    padding-bottom: 7.4%;
-    font-size: 14px;
-  }
-  .hex {
-    width: 33.333%; /* = 100 / 3 */
-  }
-  .hexIn{
-    width: 200px;
-  }
-  .img{
-    margin:10px;
-  }
-  .hex:nth-child(5n+4){ /* first hexagon of even rows */
-    margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 600px) { /* <- 2-1  hexagons per row */
-  #hexGrid{
-    padding-bottom: 11.2%;
-    font-size: 12px;
-  }
-  .hexIn{
-    width: 200px;
-  }
-  .img{
-    margin: 5px!important;
-  }
-  .hex {
-    width: 50%; /* = 100 / 3 */
-  }
-  .hex:nth-child(3n+3){ /* first hexagon of even rows */
-    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+@media (max-width: 3000px) and (min-width: 2001px) {
+  .grid-wrapper {
+    margin: 50px;
+    grid-gap: 60px;
+    grid-auto-rows: 300px;
   }
   #textHero {
-    position: absolute !important;
-    color: rgb(255, 255, 255) !important;
-    background: none !important;
-    top: 30% !important;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
+    top: 40%;
+    font-size: 70px !important;
+  }
+}
+@media (max-width: 2000px) and (min-width: 1401px) {
+  .grid-wrapper {
+    margin: 50px;
+    padding: 20px;
+    grid-gap: 40px;
+    grid-auto-rows: 300px;
+  }
+  #textHero {
+    top: 50% !important;
+  }
+  #pSobreNosotros {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #pNuestroEquipo {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #pValores {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #hValores {
+    font-size: 60px;
+    margin: 20px;
+    margin-top: 100px;
+    padding: 30px;
+  }
+  #hNuestroEquipo {
+    font-size: 60px;
+    margin: 20px;
+    margin-top: 100px;
+    padding: 30px;
+  }
+  #hSobreNosotros {
+    font-size: 60px;
+    padding: 30px;
+    margin-top: 100px;
+  }
+  .servicios {
+    font-size: 20px;
+    padding: 100px;
+  }
+  #serviciosH {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 40px;
+    font-size: 20px;
+    padding: 100px;
+  }
+  #calcula {
+    padding: 40px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 1201px) {
+  .grid-wrapper {
+    margin: 20px;
+    padding: 10px;
+    grid-gap: 15px;
+    grid-auto-rows: 300px;
+  }
+  #textHero {
+    top: 40%;
+    font-size: 50px !important;
+  }
+
+  #pSobreNosotros {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #pNuestroEquipo {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #pValores {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #hValores {
+    font-size: 60px;
+    margin: 20px;
+    margin-top: 100px;
+    padding: 30px;
+  }
+  #hNuestroEquipo {
+    font-size: 60px;
+    margin: 20px;
+    margin-top: 100px;
+    padding: 30px;
+  }
+  #hSobreNosotros {
+    font-size: 60px;
+    padding: 30px;
+    margin-top: 100px;
+  }
+  .servicios {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  #serviciosH {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  #calcula {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .grid-wrapper {
+    margin: 20px;
+    padding: 10px;
+    grid-gap: 20px;
+    grid-auto-rows: 300px;
+  }
+  #textHero {
+    top: 30%;
+    font-size: 40px !important;
+  }
+
+  #pSobreNosotros {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+  }
+  #pNuestroEquipo {
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 100px;
+    text-align: justify;
+  }
+  #pValores {
+    font-size: 20px;
+    padding: 40px;
+    text-align: justify;
+  }
+  #hValores {
+    font-size: 50px;
+    margin: 20px;
+  }
+  #hNuestroEquipo {
+    font-size: 50px;
+    margin: 20px;
+  }
+  #hSobreNosotros {
+    font-size: 60px;
+    padding-top: 70px;
+    margin: 20px;
+  }
+  .servicios {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  #serviciosH {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  #calcula {
+    padding: 40px;
+  }
+  .row .col:nth-child(4) {
+    order: 2;
+  }
+  .row .col:nth-child(3) {
+    order: 3;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .grid-wrapper {
+    margin: 10px;
+    padding: 10px;
+    grid-gap: 20px;
+    grid-auto-rows: 300px;
+  }
+  .row .col:nth-child(4) {
+    order: 2;
+  }
+  .row .col:nth-child(3) {
+    order: 3;
+  }
+  #textHero {
+    top: 30%;
+    font-size: 30px !important;
+  }
+  #pSobreNosotros {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+  }
+  #pNuestroEquipo {
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 100px;
+    text-align: justify;
+  }
+  #pValores {
+    font-size: 20px;
+    padding: 40px;
+    text-align: justify;
+  }
+  #hValores {
+    font-size: 50px;
+    margin: 20px;
+  }
+  #hNuestroEquipo {
+    font-size: 50px;
+    margin: 20px;
+  }
+  #hSobreNosotros {
+    font-size: 60px;
+    padding-top: 70px;
+    margin: 20px;
+  }
+  .servicios {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  #serviciosH {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  #calcula {
+    padding: 40px;
+  }
+}
+@media (max-width: 768px) and (min-width: 577px) {
+  .grid-wrapper > div > img:hover {
+    transform: scale(1.1);
+    filter: brightness(120%);
+  }
+  .grid-wrapper {
+    margin: 10px;
+    padding: 0px;
+    grid-gap: 20px;
+    grid-auto-rows: 300px;
+  }
+  #parallax-world-of-ugg .block {
+    background: white;
+    padding: 100px;
+    width: auto;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  .row .col:nth-child(4) {
+    order: 2;
+  }
+  .row .col:nth-child(3) {
+    order: 3;
+  }
+
+  /*TEXTOS P*/
+  #pSobreNosotros {
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 100px;
+    padding: 20px;
+  }
+  #pNuestroEquipo {
+    font-size: 20px;
+    padding: 20px;
+    text-align: justify;
+  }
+  #pValores {
+    font-size: 20px;
+    padding: 40px;
+    text-align: justify;
+  }
+  #hValores {
+    font-size: 40px;
+    margin: 20px;
+  }
+  #hNuestroEquipo {
+    font-size: 40px;
+    margin: 20px;
+  }
+  #hSobreNosotros {
+    font-size: 40px;
+    padding-top: 70px;
+    margin: 20px;
+  }
+  #textHero {
+    top: 25%;
+    font-size: 30px !important;
+  }
+  .servicios {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  #serviciosH {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 40px;
+  }
+  #calcula {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) and (min-width: 401px) {
+  .grid-wrapper .wide {
+    grid-column: span 2;
+  }
+  .grid-wrapper .tall {
+    grid-row: span 2;
+  }
+  .grid-wrapper .big {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  #textHero {
+    top: 20%;
+    font-size: 20px !important;
   }
   #fotoCocina {
     width: 300px;
   }
+  .grid-wrapper {
+    padding: 10px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: dense;
+  }
+  #parallax-world-of-ugg .block {
+    background: white;
+    padding: 50px;
+    width: auto;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  /*LETRAS*/
+  #pSobreNosotros {
+    font-size: 15px;
+    padding: 20px;
+    text-align: justify;
+  }
+  #pNuestroEquipo {
+    font-size: 15px;
+    padding: 20px;
+    text-align: justify;
+  }
+  .row .col:nth-child(4) {
+    order: 2;
+  }
+  .row .col:nth-child(3) {
+    order: 3;
+  }
+  #pValores {
+    font-size: 15px;
+    padding: 20px;
+    text-align: justify;
+  }
+
+  #hValores {
+    font-size: 40px;
+    margin: 20px;
+  }
+  #hNuestroEquipo {
+    font-size: 40px;
+    margin: 20px;
+  }
+  #hSobreNosotros {
+    font-size: 40px;
+    padding-top: 70px;
+    margin: 20px;
+  }
+  .grid-wrapper > div > img:hover {
+    transform: scale(1);
+    filter: brightness(120%);
+  }
+  .servicios {
+    font-size: 15px;
+  }
+  #serviciosH {
+    font-size: 30px;
+    padding-bottom: 30px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 20px;
+  }
+  #calcula {
+    padding: 10px;
+  }
 }
 
-@media (max-width: 400px) {
-    #hexGrid {
-        font-size: 8px;
-    }
-  
-
-  
- 
+@media (max-width: 400px) and (min-width: 200px) {
+  .grid-wrapper .wide {
+    grid-column: span 1;
+  }
+  .grid-wrapper .tall {
+    grid-row: span 1;
+  }
+  .grid-wrapper .big {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  #textHero {
+    top: 20%;
+    font-size: 10px !important;
+  }
+  #fotoCocina {
+    width: 300px;
+  }
+  .grid-wrapper {
+    padding: 10px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: dense;
+  }
+  #parallax-world-of-ugg .block {
+    background: white;
+    padding: 50px;
+    width: auto;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  /*LETRAS*/
+  #pSobreNosotros {
+    font-size: 15px;
+    padding: 30px;
+    text-align: justify;
+  }
+  #pNuestroEquipo {
+    font-size: 15px;
+    padding: 10px;
+    text-align: justify;
+    padding-bottom: 100px !important;
+  }
+  .row .col:nth-child(4) {
+    order: 2;
+  }
+  .row .col:nth-child(3) {
+    order: 3;
+  }
+  #pValores {
+    font-size: 15px;
+    text-align: justify;
+    padding: 10px;
+  }
+  .servicios {
+    font-size: 15px;
+    padding: 20px;
+  }
+  #pCalcula {
+    text-align: justify;
+    margin-top: 20px;
+  }
+  #calcula {
+    padding: 10px;
+  }
+  #hValores {
+    font-size: 30px;
+    padding-bottom: 10px !important;
+  }
+  #hNuestroEquipo {
+    font-size: 40px;
+    padding-bottom: 10px !important;
+  }
+  #hSobreNosotros {
+    font-size: 40px;
+    padding-bottom: 10px !important;
+  }
+  .grid-wrapper > div > img:hover {
+    transform: scale(1);
+    filter: brightness(120%);
+  }
 }
-

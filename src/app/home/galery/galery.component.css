@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Bebas+Neue&family=Quicksand:wght@300&display=swap");
+
+.spinner-border {
+  width: 100px;
+  height: 100px;
+  margin: 200px;
+}
+.cargando {
+  height: 100vh;
+}
+h1 {
+  font-family: "Aboreto";
+  font-size: 50px;
+}
+button {
+  color: #243133;
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+button:hover {
+  color: #5e6c70;
+}
+button.active {
+  color: chocolate;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-right: 20px;
+}
+/*esto arregla las imágenes para 
+evitar que se expandan si no son tan anchas*/
+.image-gallery::after {
+  content: "";
+  flex-grow: 999;
+}
+.image-gallery > li {
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+  list-style-type: none;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.image-gallery li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+@media (max-width: 3000px) and (min-width: 2001px) {
+}
+@media (max-width: 2000px) and (min-width: 1401px) {
+}
+
+@media (max-width: 1400px) and (min-width: 1201px) {
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+}
+@media (max-width: 768px) and (min-width: 577px) {
+}
+
+@media (max-width: 576px) and (min-width: 401px) {
+  h1 {
+    font-family: "Aboreto";
+    font-size: 30px;
+  }
+  button {
+    color: #243133;
+    background: none;
+    border: none;
+    font-size: 15px;
+  }
+  .cargando {
+    height: 50vh;
+    font-family: "Aboreto";
+  }
+  h2 {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) and (min-width: 200px) {
+  h1 {
+    font-family: "Aboreto";
+    font-size: 20px;
+  }
+  button {
+    color: #243133;
+    background: none;
+    border: none;
+    font-size: 15px;
+  }
+  .cargando {
+    height: 50vh;
+    font-family: "Aboreto";
+  }
+  h2 {
+    font-size: 15px;
+  }
+}

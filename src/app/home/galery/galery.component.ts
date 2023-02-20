@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { Storage, ref, listAll, getDownloadURL } from '@angular/fire/storage';
 import { FirebaseApp } from '@angular/fire/app';
+
 @Component({
   selector: 'app-galery',
   templateUrl: './galery.component.html',
@@ -8,19 +10,27 @@ import { FirebaseApp } from '@angular/fire/app';
 })
 export class GaleryComponent {
   mostrarImagen: string = 'bathroom';
-
-cambiarImagen(nuevaImagen: string) {
-  this.mostrarImagen = nuevaImagen;
-}
+  cargando: boolean = true;
+  cambiarImagen(nuevaImagen: string) {
+    this.mostrarImagen = nuevaImagen;
+  }
   imagesBathroom: string[];
   imagesKitchen: string[];
   imagesOthers: string[];
-  constructor(private storage: Storage) {
+
+  selectedImage: string = '';
+
+  constructor(private storage: Storage,   private modal: NgbModal) {
     this.imagesBathroom = [];
     this.imagesKitchen = [];
     this.imagesOthers = [];
   }
+  openModal(modalContent:any, image:any) {
+    this.selectedImage = image;
+    this.modal.open(modalContent, { size: 'md' });
+  }
   ngOnInit(): void {
+    this.cargando = true;
     this.getImages();
   }
   getImages() {
@@ -36,10 +46,11 @@ cambiarImagen(nuevaImagen: string) {
 
           this.imagesBathroom.push(url);
         }
+        this.cargando = false;
       })
       .catch((error) => console.log(error));
 
-      listAll(imagesRefKitch)
+    listAll(imagesRefKitch)
       .then(async (response) => {
         console.log(response);
         this.imagesKitchen = [];
@@ -48,10 +59,11 @@ cambiarImagen(nuevaImagen: string) {
 
           this.imagesKitchen.push(url);
         }
+        this.cargando = false;
       })
       .catch((error) => console.log(error));
 
-      listAll(imagesRefOther)
+    listAll(imagesRefOther)
       .then(async (response) => {
         console.log(response);
         this.imagesOthers = [];
@@ -60,6 +72,7 @@ cambiarImagen(nuevaImagen: string) {
 
           this.imagesOthers.push(url);
         }
+        this.cargando = false;
       })
       .catch((error) => console.log(error));
   }

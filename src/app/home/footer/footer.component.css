@@ -7,7 +7,9 @@ ul {
   background-color: #243133 !important;
   position: relative;
 }
-
+#logoFooter{
+  width: 150px;
+}
 .single-cta i {
   color: #BD9109;
   font-size: 30px;
@@ -90,4 +92,10 @@ ul {
 }
 .copyright-text p a{
   color: #BD9109;
+}
+
+@media (max-width:400px){
+#logoFooter{
+  width: 100px;
+}
 }

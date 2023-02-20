@@ -25,7 +25,7 @@ export class DetailBudgetComponent {
   //@Input() budgetId:any;
   //@Input() value:any;
   @Input() selectedBudget: any;
-
+ // budget: any;
   openSM(contenido: any) {
     this.modal.open(contenido, { size: 'sm' });
   }
@@ -82,7 +82,7 @@ export class DetailBudgetComponent {
         },
       ],
     });
-
+/*
     Packer.toBuffer(doc).then((buffer) => {
       const blob = new Blob([buffer], {
         type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -90,15 +90,15 @@ export class DetailBudgetComponent {
       const url = window.URL.createObjectURL(blob);
       window.open(url);
     });
-    
+*/
     /*
     Packer.toBuffer(doc).then((buffer) => {
       fs.writeFileSync(this.budget.value.name + '.docx', buffer);
       const wordProcess: ChildProcess = spawn('winword', [this.budget.value.name + '.docx']);
     });*/
-/*
+    
     Packer.toBlob(doc).then((blob) => {
       saveAs(blob, this.budget.value.name + ".docx");
-    });*/
+    });
   }
 }
