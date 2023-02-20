@@ -54,6 +54,16 @@ evitar que se expandan si no son tan anchas*/
   vertical-align: middle;
   border-radius: 5px;
 }
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+}
+.close{
+  border: none;
+  float: right;
+}
+
+
 
 @media (max-width: 3000px) and (min-width: 2001px) {
 }

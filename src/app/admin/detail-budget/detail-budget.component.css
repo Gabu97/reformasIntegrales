@@ -1,0 +1,15 @@
+label{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+input{
+  border-color: grey;
+  padding: 5px;
+}
+#close{
+    float: right;
+    margin: 5px;
+}
+#down{
+    margin: 10px;
+}

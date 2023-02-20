@@ -1,65 +1,66 @@
 <ng-template #contenido let-modal>
-<div class="modal-container">
-  <div class="modal-header">
-    <h2>Modal Title</h2>
+  <div class="modal-container">
+    <button type="button" id="close" class="btn btn-secondary" (click)="modal.close()">
+      OK
+    </button>
+    <div class="modal-header">
+      <h1>Budget Detail</h1>
+    </div>
+    <div class="modal-body" id="modal-content">
+
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label><br />
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="budget.value.name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="bathrooms">Bathrooms</label><br />
+          <input
+            type="text"
+            id="bathrooms"
+            [(ngModel)]="budget.value.bathrooms"
+            (ngModelChange)="calculateBudget()"
+            name="bathrooms"
+          />
+        </div>
+        <div class="form-group">
+          <label for="kitchen">Kitchen</label><br />
+          <input
+            type="text"
+            id="kitchen"
+            [(ngModel)]="budget.value.kitchen"
+            (ngModelChange)="calculateBudget()"
+            name="kitchen"
+          />
+        </div>
+        <div class="form-group">
+          <label for="painting">Painting</label><br />
+          <input
+            type="text"
+            id="painting"
+            [(ngModel)]="budget.value.painting"
+            (ngModelChange)="calculateBudget()"
+            name="painting"
+          />
+        </div>
+        <div class="form-group">
+          <label for="total">Total</label><br />
+          <input
+            type="text"
+            id="total"
+            [(ngModel)]="budget.value.total"
+            name="total"
+          />
+        </div>
+        <button id="down" class="btn btn-outline-success " (click)="updateBudget(budget)">Save</button>
+        <button id="down" class="btn btn-outline-primary" (click)="createWordDocument()">Export to word</button>
+      </form>
+    </div>
   </div>
-  <div class="modal-body" id="modal-content">
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          [(ngModel)]="budget.value.name"
-          name="name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="bathrooms">Bathrooms</label>
-        <input
-          type="text"
-          id="bathrooms"
-          [(ngModel)]="budget.value.bathrooms"
-          (ngModelChange)="calculateBudget()"
-          name="bathrooms"
-        />
-      </div>
-      <div class="form-group">
-        <label for="kitchen">Kitchen</label>
-        <input
-          type="text"
-          id="kitchen"
-          [(ngModel)]="budget.value.kitchen"
-          (ngModelChange)="calculateBudget()"
-          name="kitchen"
-        />
-      </div>
-      <div class="form-group">
-        <label for="painting">Painting</label>
-        <input
-          type="text"
-          id="painting"
-          [(ngModel)]="budget.value.painting"
-          (ngModelChange)="calculateBudget()"
-          name="painting"
-        />
-      </div>
-      <div class="form-group">
-        <label for="total">Total</label>
-        <input
-          type="text"
-          id="total"
-          [(ngModel)]="budget.value.total"
-          name="total"
-        />
-      </div>
-      <button (click)="updateBudget(budget)">Save changes</button>
-      <button type="button" class="btn btn-secondary" (click)="modal.close()">
-        OK
-      </button>
-<button (click)="createWordDocument()">Word</button>
-    </form>
-  </div>
-</div>
 </ng-template>
 <a (click)="openSM(contenido)">Update</a>

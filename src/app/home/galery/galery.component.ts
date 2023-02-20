@@ -27,7 +27,7 @@ export class GaleryComponent {
   }
   openModal(modalContent:any, image:any) {
     this.selectedImage = image;
-    this.modal.open(modalContent, { size: 'md' });
+    this.modal.open(modalContent, { size: 'xl' });
   }
   ngOnInit(): void {
     this.cargando = true;

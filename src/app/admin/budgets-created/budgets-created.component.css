@@ -1,0 +1,23 @@
+#uno{
+    background-color: rgb(255, 195, 152);
+}
+
+table{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 300px;
+}
+#button{
+    margin-top: 50px;
+  
+
+}
+#buttons{
+    margin: 50px;
+}
+#peque{
+    width: 100px;
+}
+

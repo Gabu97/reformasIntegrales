@@ -1,179 +1,186 @@
 <div class="row bg-light shadow-sm p-5">
   <div class="col">
-    <h1>Crea tu presupuesto personalizado</h1>
-    <p>
-      *ESTO METERLO En un modal DE INFO*<br />
+    <h1 class="text-center">
+      Crea tu presupuesto personalizado para tu cuarto de baño
+    </h1>
+    <p class="text-center m-auto pt-3">
       La calculadora es una herramienta diseñada para ayudarte a obtener una
-      aproximación del precio total de la reforma integral de tu vivienda. Con
-      ella, puedes seleccionar los trabajos que deseas realizar en tu hogar,
-      como pintura, electricidad, baños, entre otros, y obtener una estimación
-      del presupuesto total. Para utilizarla, simplemente sigue las
-      instrucciones indicadas. Ten en cuenta que los precios obtenidos son
-      orientativos y pueden variar dependiendo de la ubicación, la
-      disponibilidad de materiales y otros factores. Contactar con nosotros para
-      obtener un presupuesto más preciso.
+      aproximación del precio total de la reforma de baño de tu vivienda. Con
+      ella, puedes seleccionar los trabajos que deseas realizar, como pintura,
+      electricidad, accesorios, entre otros, y obtener una estimación del
+      presupuesto total. <br />
+      Ten en cuenta que los precios obtenidos son orientativos y pueden variar
+      dependiendo de la ubicación, la disponibilidad de materiales y otros
+      factores. Contacta con nosotros para obtener un presupuesto más preciso.
     </p>
-    <p>
-      1. Selecciona los trabajos que deseas realizar en tu vivienda.<br />
-      2. Elige las cantidades de espacios a reformar.<br />
-      3. Introduce las medidas de las áreas, podrás ver al instante el precio
-      final.<br />
-    </p>
-    <hr />
-    <form [formGroup]="budgetForm">
-      <div>
-        <label for="derribos">Derribos</label>
-        <input type="number" formControlName="derribos" />
-      </div>
-      <div>
-        <label for="instalaciones">Instalaciones:</label>
-        <input type="checkbox" id="instalaciones" (click)="toggleInst()" />
-        <div *ngIf="showInstalaciones">
-          <p>Elige la opción de instalaciones:</p>
-          <ul>
-            <li>
-              Opción 1:
-              <input
-                type="checkbox"
-                formControlName="agua"
-                (change)="onAguaChecked($event)"
-              />/>
-              <label for="agua">Agua</label>
-            </li>
-            <li>
-              Opción 2:
-              <input
-                type="checkbox"
-                formControlName="desague"
-                (change)="onDesagueChecked($event)"
-              />/>
-              <label for="desague">Desague</label>
-            </li>
-            <li>
-              Opción 3:
-              <input
-                type="checkbox"
-                formControlName="electricidad"
-                (change)="onElectricidadChecked($event)"
-              />/>
-              <label for="electricidad">Electricidad</label>
-            </li>
-            <li>
-              Opción 1:
-              <input
-                type="checkbox"
-                formControlName="completa"
-                (change)="onCompletaChecked($event)"
-              />/>
-              <label for="completa">Completa</label>
-            </li>
-          </ul>
+  </div>
+  <hr />
+
+  <form [formGroup]="budgetForm">
+    <div class="row">
+      <div class="col-xl-6 col-xl-6 col-md-6 col-sm-12">
+        <div class="ms-3">
+          <label for="derribos">Derribos (m2)</label>
+          <input type="number" formControlName="derribos" />
+        </div>
+        <div>
+          <input type="checkbox" id="instalaciones" (click)="toggleInst()" />
+          <label for="instalaciones">Instalaciones</label>
+
+          <div *ngIf="showInstalaciones">
+            <ul>
+              <li>
+                <input
+                  type="checkbox"
+                  formControlName="agua"
+                  (change)="onAguaChecked($event)"
+                />
+                <label for="agua">Agua</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  formControlName="desague"
+                  (change)="onDesagueChecked($event)"
+                />
+                <label for="desague">Desague</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  formControlName="electricidad"
+                  (change)="onElectricidadChecked($event)"
+                />
+                <label for="electricidad">Electricidad</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  formControlName="completa"
+                  (change)="onCompletaChecked($event)"
+                />
+                <label for="completa">Completa</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="paredes" (click)="toggleParedes()" />
+          <label for="paredes">Paredes</label>
+
+          <div *ngIf="showParedes" class="ms-5">
+            <input type="number" formControlName="paredesDetail" />
+            <label for="paredesDetail">Paredes (m2)</label>
+
+            <br />
+            <input type="checkbox" formControlName="puerta" />
+            <label for="puerta">Puerta</label>
+          </div>
+        </div>
+
+        <div class="ms-3">
+          <label for="suelo">Suelo (m2)</label>
+          <input type="number" formControlName="suelo" />
+        </div>
+        <div>
+          <input type="checkbox" id="techo" (click)="toggleTecho()" />
+          <label for="techo">Techo</label>
+
+          <div class="ms-5" *ngIf="showTecho">
+            <input type="number" formControlName="colocarTecho" />
+            <label for="colocarTecho">Colocación (m2)</label>
+            <br />
+            <input type="number" formControlName="iluminarTecho" />
+            <label for="iluminarTecho">Iluminación (m2)</label>
+            <br />
+            <input type="number" formControlName="pintarTecho" />
+            <label for="pintarTecho">Pintura (m2)</label>
+            <br />
+          </div>
         </div>
       </div>
-      <div>
-        <label for="paredes">Paredes:</label>
-        <input type="checkbox" id="paredes" (click)="toggleParedes()" />
-        <div *ngIf="showParedes">
-          <label for="paredesDetail">Algo de paredes:</label>
-          <input type="number" formControlName="paredesDetail" />
-          Algo de paredes
-          <label for="puerta">Puerta</label>
-          <input type="checkbox" formControlName="puerta" />
-        </div>
-      </div>
-      <div>
-        <label for="suelo">Suelo</label>
-        <input type="number" formControlName="suelo" />
-      </div>
-      <div>
-        <label for="techo">Techo:</label>
-        <input type="checkbox" id="techo" (click)="toggleTecho()" />
-        <div *ngIf="showTecho">
-          <label for="colocarTecho">Colocacion</label>
-          <input type="number" formControlName="colocarTecho" />
-          <label for="iluminarTecho">Iluminacion</label>
-          <input type="number" formControlName="iluminarTecho" />
-          <label for="pintarTecho">Pintura</label>
-          <input type="number" formControlName="pintarTecho" />
-        </div>
-      </div>
-      <div>
-        <label for="accesorios">Accesorios:</label>
+
+      <div class="col-xl-6 col-xl-6 col-md-6 col-sm-12">
         <input type="checkbox" id="accesorios" (click)="toggleAccesorios()" />
-        <div *ngIf="showAccesorios">
-          <label for="inodoro">Inodoros</label>
+        <label for="accesorios">Accesorios</label>
+
+        <div *ngIf="showAccesorios" class="ms-3">
           <input type="checkbox" (click)="toggleIn()" />
-
-          <div *ngIf="showIn">
+          <label for="inodoro">Inodoros</label><br />
+          <div *ngIf="showIn" class="ms-3">
             <input type="checkbox" formControlName="inodoro1" />
-            <label for="inodoro1">Inodoro1</label>
+            <label for="inodoro1">Inodoro suspendido 930 €</label>
             <input type="checkbox" formControlName="inodoro2" />
-            <label for="inodoro2">Inodoro2</label>
+            <label for="inodoro2">Inodoro libre 560 €</label>
           </div>
-
-          <label for="mueble">Mueble</label>
           <input type="checkbox" (click)="toggleMueble()" />
-          <div *ngIf="showMueble">
+          <label for="mueble">Mueble</label><br />
+
+          <div *ngIf="showMueble" class="ms-3">
             <input type="checkbox" formControlName="mueble1" />
-            <label for="mueble1">Mueble1</label>
+            <label for="mueble1">Mueble 750 €</label>
             <input type="checkbox" formControlName="mueble2" />
-            <label for="mueble2">Mueble2</label>
+            <label for="mueble2">Mueble 1050 €</label>
             <input type="checkbox" formControlName="mueble3" />
-            <label for="mueble3">Mueble3</label>
+            <label for="mueble3">Mueble 2100 €</label>
           </div>
-
-          <label for="grifoL">Grifo lavabo</label>
           <input type="checkbox" (click)="toggleGrifoL()" />
-          <div *ngIf="showGrifoL">
+          <label for="grifoL">Grifo lavabo</label><br />
+
+          <div *ngIf="showGrifoL" class="ms-3">
             <input type="checkbox" formControlName="grifo1" />
-            <label for="grifo1">grifo1</label>
+            <label for="grifo1">Grifo 100 €</label>
             <input type="checkbox" formControlName="grifo2" />
-            <label for="grifo2">grifo2</label>
+            <label for="grifo2">Grifo 150 €</label>
             <input type="checkbox" formControlName="grifo3" />
-            <label for="grifo3">grifo3</label>
+            <label for="grifo3">Grifo 300€</label>
           </div>
-
-          <label for="grifoD">Grifo ducha</label>
           <input type="checkbox" (click)="toggleGrifoD()" />
-          <div *ngIf="showGrifoD">
+          <label for="grifoD">Grifo ducha</label><br />
+
+          <div *ngIf="showGrifoD" class="ms-3">
             <input type="checkbox" formControlName="grifo1d" />
-            <label for="grifo1d">grifo1d</label>
+            <label for="grifo1d">Grifo 260 €</label>
             <input type="checkbox" formControlName="grifo2d" />
-            <label for="grifo2d">grifo2d</label>
+            <label for="grifo2d">Grifo 360 €</label>
             <input type="checkbox" formControlName="grifo3d" />
-            <label for="grifo3d">grifo3d</label>
+            <label for="grifo3d">Grifo 800 €</label>
           </div>
-
-          <label for="platoD">Plato ducha</label>
           <input type="checkbox" (click)="togglePlatoD()" />
-          <div *ngIf="showPlatoD">
-            <input type="checkbox" formControlName="plato1" />
-            <label for="plato1">plato1</label>
-            <input type="checkbox" formControlName="plato2" />
-            <label for="plato2">plato2</label>
-            <input type="checkbox" formControlName="plato3" />
-            <label for="plato3">plato3</label>
-          </div>
+          <label for="platoD">Plato ducha</label><br />
 
-          <label for="espejo">Espejo</label>
-          <input type="checkbox" (click)="toggleEspejo()" />
-          <div *ngIf="showEspejo">
-            <input type="checkbox" formControlName="espejo1" />
-            <label for="espejo1">espejo1</label>
-            <input type="checkbox" formControlName="espejo2" />
-            <label for="espejo2">espejo2</label>
+          <div *ngIf="showPlatoD" class="ms-3">
+            <input type="checkbox" formControlName="plato1" />
+            <label for="plato1">Resina 720 €</label>
+            <input type="checkbox" formControlName="plato2" />
+            <label for="plato2">Obra 880 €</label>
+            <input type="checkbox" formControlName="plato3" />
+            <label for="plato3">Bañera de fibra blanca 690 €</label>
           </div>
-          <label for="mampara">Mampara</label>
+          <input type="checkbox" (click)="toggleEspejo()" />
+          <label for="espejo">Espejo</label><br />
+
+          <div *ngIf="showEspejo" class="ms-3">
+            <input type="checkbox" formControlName="espejo1" />
+            <label for="espejo1">Espejo liso 220 €</label>
+            <input type="checkbox" formControlName="espejo2" />
+            <label for="espejo2">Manta antivaho 110 €</label>
+          </div>
           <input type="checkbox" (click)="toggleMampara()" />
-          <div *ngIf="showMampara">
+          <label for="mampara">Mampara</label><br />
+
+          <div *ngIf="showMampara" class="ms-3">
             <input type="checkbox" formControlName="mampara1" />
-            <label for="mampara1">mampara1</label>
+            <label for="mampara1">Corredera 840 €</label>
             <input type="checkbox" formControlName="mampara2" />
-            <label for="mampara2">mampara2</label>
+            <label for="mampara2">Panel fijo 570 €</label>
           </div>
         </div>
       </div>
-    </form>
-    <div>Total: {{ calculateBudget() }}</div>
+    </div>
+  </form>
+
+  <div class="row">
+    <h4 class="text-center">Total: {{ calculateBudget() }} €</h4>
   </div>
 </div>

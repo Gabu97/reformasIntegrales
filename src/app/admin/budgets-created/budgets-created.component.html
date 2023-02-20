@@ -1,32 +1,38 @@
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Bathrooms</th>
-    <th>Kitchen</th>
-    <th>Painting</th>
-    <th>Total</th>
-  </tr>
-  <tr *ngFor="let budget of budgets | keyvalue">
-    <td>{{ budget.key }}</td>
-    <td>{{ budget.value.name }}</td>
-    <td>{{ budget.value.bathrooms }}</td>
-    <td>{{ budget.value.kitchen }}</td>
-    <td>{{ budget.value.painting }}</td>
-    <td>{{ budget.value.total }}</td>
-    <td><button (click)="removeBudget(budget)">Remove</button></td>
-    <td>
-      <button (click)="openModal(budget)">
-        <app-detail-budget [budget]="selectedBudget"></app-detail-budget>
-      </button>
-    </td>
-    <td></td>
-  </tr>
-  <tr *ngIf="!budgets || budgets.length === 0">
-    <td colspan="5">No hay datos</td>
-  </tr>
-</table>
+<div class="vh-100 text-center container">
+  <table class="table-striped table-hover">
+    <tr id="uno">
+      <th id="peque">Name</th>
+      <th id="peque">Bathrooms</th>
+      <th id="peque">Kitchen</th>
+      <th id="peque">Painting</th>
+      <th id="peque">Total</th>
+    </tr>
+    <tr *ngFor="let budget of budgets | keyvalue">
+      <td>{{ budget.value.name }}</td>
+      <td id="peque">{{ budget.value.bathrooms }}</td>
+      <td id="peque">{{ budget.value.kitchen }}</td>
+      <td id="peque">{{ budget.value.painting }}</td>
+      <td>{{ budget.value.total }} €</td>
+      <td id="peque">
+        <button class="btn btn-danger" (click)="removeBudget(budget)">
+          Remove
+        </button>
+      </td>
+      <td id="peque">
+        <button class="btn btn-info" (click)="openModal(budget)">
+          <app-detail-budget [budget]="selectedBudget"></app-detail-budget>
+        </button>
+      </td>
+      <td></td>
+    </tr>
+    <tr *ngIf="!budgets || budgets.length === 0">
+      <td colspan="5">No hay datos</td>
+    </tr>
+  </table>
+  <div id="button">
+    <button id="buttons" class="btn btn-outline-success" routerLink="/calculatorAdmin">Crear nuevo</button>
+    <button id="buttons" class="btn btn-outline-warning" (click)="onClick()">Cierra sesión</button>
+  </div>
 
-<button routerLink="/calculatorAdmin">CREATE NEW</button>
-<button (click)="onClick()">Cierra sesión</button>
-<!--<app-detail-budget *ngIf="isModalOpen" [budget]="selectedBudget" (close)="closeModal()"></app-detail-budget>-->
+  <!--<app-detail-budget *ngIf="isModalOpen" [budget]="selectedBudget" (close)="closeModal()"></app-detail-budget>-->
+</div>

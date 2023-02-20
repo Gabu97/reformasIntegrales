@@ -34,8 +34,8 @@ import { HostListener, ElementRef } from '@angular/core';
           opacity: 0,
         })
       ),
-      transition('show => hide', animate('900ms ease-out')),
-      transition('hide => show', animate('900ms ease-in')),
+      transition('show => hide', animate('300ms ease-out')),
+      transition('hide => show', animate('300ms ease-in')),
     ]),
   ],
 })
@@ -45,7 +45,7 @@ export class HeroComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const componentPosition = this.el.nativeElement.offsetTop;
+    const componentPosition = this.el.nativeElement.offsetTop/ 1.33;
 
     const scrollPosition = window.pageYOffset;
 

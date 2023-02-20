@@ -31,14 +31,17 @@
   <div
     class="container cargando d-flex flex-column justify-content-center align-items-center"
   >
-  <h2>CARGANDO</h2>
+    <h2>CARGANDO</h2>
     <div class="spinner-border mt-3" role="status">
       <span class="sr-only"></span>
     </div>
   </div>
 </ng-container>
 
-<div class="container mw-100 mx-auto" *ngIf="mostrarImagen === 'bathroom' && !cargando">
+<div
+  class="container mx-auto"
+  *ngIf="mostrarImagen === 'bathroom' && !cargando"
+>
   <ul class="image-gallery">
     <li *ngFor="let image of imagesBathroom">
       <img [src]="image" (click)="openModal(modalContent, image)" />
@@ -67,6 +70,8 @@
 </div>
 -->
 <ng-template #modalContent let-modal>
+  <div class="modal-dialog modal-dialog-centered modal-xl modal-sm">
+    <div class="modal-content">
   <div class="modal-header">
     <button
       type="button"
@@ -78,6 +83,8 @@
     </button>
   </div>
   <div class="modal-body">
-    <img [src]="selectedImage" />
+    <div class="container"><img [src]="selectedImage" /></div>
   </div>
+</div>
+</div>
 </ng-template>

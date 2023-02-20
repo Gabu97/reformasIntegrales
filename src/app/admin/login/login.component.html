@@ -1,11 +1,32 @@
-<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Email:</label>
-      <input type="email" name="email" id="email" formControlName="email" required>
-    </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" name="password" id="password" formControlName="password" required>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+<div class="container vh-100">
+  <div class="login">
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <h1>reformasIntegrales<span>Admin</span></h1>
+      <div class="m-auto text-center">
+        <input
+        
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="m-auto text-center">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div class="text-center m-auto mt-5">
+        <button class="btn btn-outline-warning" type="submit" >Submit</button>
+      </div>
+     
+    </form>
+  </div>
+</div>
